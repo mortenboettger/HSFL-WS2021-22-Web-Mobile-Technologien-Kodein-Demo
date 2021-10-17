@@ -10,7 +10,7 @@ class LoginController {
     private val di = DiProvider().di
 
     fun loginIndependent() {
-        val gateway by di.newInstance { IndependentGateway(instance(tag = "Sql"), instance(tag = "basicAuth")) }
+        val gateway by di.newInstance { IndependentGateway(instance(tag = "Sql"), instance()) }
         gateway.userLogin("test", "test")
     }
 

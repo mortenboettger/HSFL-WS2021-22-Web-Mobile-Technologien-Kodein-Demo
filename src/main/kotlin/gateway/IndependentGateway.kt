@@ -1,12 +1,12 @@
 package gateway
 
-import dependencies.authhandler.SomeAuthHandler
+import dependencies.authhandler.BasicAuthHandler
 import dependencies.database.SomeDatabase
 import javax.naming.AuthenticationException
 
 class IndependentGateway(
     private val db: SomeDatabase,
-    private val authHandler: SomeAuthHandler
+    private val authHandler: BasicAuthHandler
 ) : SomeGateway {
     override fun userLogin(username: String, password: String): Boolean {
         return try {

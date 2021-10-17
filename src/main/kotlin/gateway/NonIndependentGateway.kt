@@ -1,6 +1,6 @@
 package gateway
 
-import dependencies.authhandler.SomeAuthHandler
+import dependencies.authhandler.BasicAuthHandler
 import dependencies.database.SomeDatabase
 import org.kodein.di.DI
 import org.kodein.di.instance
@@ -8,7 +8,7 @@ import javax.naming.AuthenticationException
 
 class NonIndependentGateway(di: DI) : SomeGateway {
     private val db: SomeDatabase by di.instance("Mongo")
-    private val authHandler: SomeAuthHandler by di.instance("OAuth")
+    private val authHandler: BasicAuthHandler by di.instance()
 
     override fun userLogin(username: String, password: String): Boolean {
         return try {
