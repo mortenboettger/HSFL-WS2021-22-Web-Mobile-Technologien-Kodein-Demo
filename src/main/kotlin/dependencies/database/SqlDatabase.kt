@@ -2,8 +2,8 @@ package dependencies.database
 
 import model.User
 
-class SqlDatabase: SomeDatabase {
+class SqlDatabase : SomeDatabase {
     override fun getUserByName(username: String): User {
-        return User(username, "someHashViaSql")
+        return User(username, this::class.java.name)
     }
 }

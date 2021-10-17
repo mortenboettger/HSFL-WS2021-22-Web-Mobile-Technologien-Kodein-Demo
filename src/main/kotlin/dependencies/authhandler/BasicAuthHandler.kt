@@ -6,6 +6,6 @@ import model.User
 class BasicAuthHandler {
     fun authenticateUser(dbUser: User, password: String): AuthenticatedUser {
         // some password check
-        return AuthenticatedUser(dbUser.username, "basicAuth")
+        return AuthenticatedUser(dbUser.username, dbUser.passwordHash)
     }
 }
